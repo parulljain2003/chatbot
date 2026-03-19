@@ -2,7 +2,7 @@
     // 1. CHATBOT STYLES (CSS inject karna)
     const style = document.createElement('style');
     style.innerHTML = `
-        #my-bot-container { font-family: 'Segoe UI', sans-serif; position: fixed; bottom: 20px; right: 20px; z-index: 9999; }
+        #my-bot-container { font-family: 'Segoe UI', sans-serif; position: fixed; bottom: 20px; right: 20px; z-index: 9999; pointer-events: auto !important; }
         #bot-bubble { width: 60px; height: 60px; background: #2563eb; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; color: white; font-size: 28px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
         #bot-window { width: 320px; height: 450px; background: white; border-radius: 15px; display: none; flex-direction: column; box-shadow: 0 10px 25px rgba(0,0,0,0.2); overflow: hidden; margin-bottom: 15px; border: 1px solid #ddd; }
         .bot-header { background: #2563eb; color: white; padding: 15px; font-weight: bold; }
@@ -46,9 +46,10 @@
     ];
 
     // Toggle Window
-    bubble.onclick = () => {
-        win.style.display = win.style.display === 'flex' ? 'none' : 'flex';
-    };
+   bubble.onclick = () => {
+    console.log("Bubble clicked!"); // Console mein check karne ke liye
+    win.style.display = win.style.display === 'none' || win.style.display === '' ? 'flex' : 'none';
+};
 
     // Show Options as Buttons
     questions.forEach(item => {
